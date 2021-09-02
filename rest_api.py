@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 @app.route("/model_pred", methods=["POST"])
 def model_pred():
-    model = pickle.load(open("model/model.cpickle","rb"))
+    model = pickle.load(open("model.cpickle","rb"))
     data = json.loads(request.data)
     X = [i for i in data.values()]
     pred = model.predict(X)[0]
